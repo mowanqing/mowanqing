@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>dns服务器 | Riku&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="知识整理">
+    <meta name="keywords" content="知识整理">
+    <meta name="theme-color" content="#11a8cd">
+    <link rel="preload" href="/assets/css/0.styles.2b4a33db.css" as="style"><link rel="preload" href="/assets/js/app.8a3ae5f1.js" as="script"><link rel="preload" href="/assets/js/2.fbbb7b81.js" as="script"><link rel="preload" href="/assets/js/14.0718d54e.js" as="script"><link rel="prefetch" href="/assets/js/10.865824eb.js"><link rel="prefetch" href="/assets/js/11.807323d2.js"><link rel="prefetch" href="/assets/js/12.0479603f.js"><link rel="prefetch" href="/assets/js/13.e8f672b6.js"><link rel="prefetch" href="/assets/js/15.adb84ad6.js"><link rel="prefetch" href="/assets/js/16.7469cb02.js"><link rel="prefetch" href="/assets/js/17.51a1ee74.js"><link rel="prefetch" href="/assets/js/18.274aa6b1.js"><link rel="prefetch" href="/assets/js/19.2fd786e6.js"><link rel="prefetch" href="/assets/js/20.ea598d55.js"><link rel="prefetch" href="/assets/js/21.8ed232c6.js"><link rel="prefetch" href="/assets/js/22.10fa5a9d.js"><link rel="prefetch" href="/assets/js/23.1f843d26.js"><link rel="prefetch" href="/assets/js/24.0e18e95e.js"><link rel="prefetch" href="/assets/js/25.ca541120.js"><link rel="prefetch" href="/assets/js/26.e377677c.js"><link rel="prefetch" href="/assets/js/27.16960daa.js"><link rel="prefetch" href="/assets/js/3.9119fdf5.js"><link rel="prefetch" href="/assets/js/4.6bc50a21.js"><link rel="prefetch" href="/assets/js/5.0ff9a6d8.js"><link rel="prefetch" href="/assets/js/6.b402d03c.js"><link rel="prefetch" href="/assets/js/7.92659bbb.js"><link rel="prefetch" href="/assets/js/8.bee9f62a.js"><link rel="prefetch" href="/assets/js/9.acf4edca.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2b4a33db.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open no-sidebar have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://gitee.com/chobits01/image/raw/master/image/sun.png" alt="Riku's blog" class="logo"> <span class="site-name can-hide">Riku's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/archives/" class="nav-link">Timeline</a></div><div class="nav-item"><a href="/about.html" class="nav-link">About</a></div><div class="nav-item"><a href="/friends.html" class="nav-link">friends</a></div><div class="nav-item"><a href="/categories/" class="nav-link">Categories</a></div><div class="nav-item"><a href="/tags/" class="nav-link">Tags</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://gitee.com/chobits01/image/raw/master/image/riku.jpg"> <div class="blogger-info"><h3>Riku</h3> <span>文学少年!</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/archives/" class="nav-link">Timeline</a></div><div class="nav-item"><a href="/about.html" class="nav-link">About</a></div><div class="nav-item"><a href="/friends.html" class="nav-link">friends</a></div><div class="nav-item"><a href="/categories/" class="nav-link">Categories</a></div><div class="nav-item"><a href="/tags/" class="nav-link">Tags</a></div> <!----></nav>  <!----> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-33863c7e><div class="articleInfo" data-v-33863c7e><ul class="breadcrumbs" data-v-33863c7e><li data-v-33863c7e><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-33863c7e></a></li> <li data-v-33863c7e><a href="/categories/?category=linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA" title="分类" data-v-33863c7e>linux服务器搭建</a></li> <!----> <!----></ul> <div class="info" data-v-33863c7e><div title="作者" class="author iconfont icon-touxiang" data-v-33863c7e><a href="https://github.com/mowanqing" target="_blank" title="作者" class="beLink" data-v-33863c7e>Riku</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-33863c7e><a href="javascript:;" data-v-33863c7e>2021-03-29</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">
+          dns服务器
+        </h1> <!----> <div class="theme-vdoing-content content__default"><h2 id="企业中的-dns-服务"><a href="#企业中的-dns-服务" class="header-anchor">#</a> 企业中的 DNS 服务</h2> <p>常规做法:购买域名,完成 ICP 备案,并使用公网 DNS 服务(万网,新网等)进行免费解析</p> <ul><li>内网 web 服务:jira,wiki,zabbix,jenkins 等,不适合解析至公网</li> <li>服务器都有 hostname,hostname 应该设置为 FQDN,如何维护主机名和主机的内网 IP 的关系</li> <li>一些中间件的服务(mysql,mq,redis)等,由于会经常迁移和括缩容,应该使用域名对外提供配置信息,方便维护.</li> <li>甚至有的企业对解析至公网的域名有更高的要求(效率-ttl 更短,安全-dnssec)又不愿意付费,会选择自建公网 DNS</li> <li>综上,需要构建至少一套企业内部的 DNS 服务</li></ul> <h2 id="dns-软件"><a href="#dns-软件" class="header-anchor">#</a> DNS 软件</h2> <ol><li><p>实现力 DNS 协议的开源免费的软件有很多,例如:powerdns,dnsmasq,bind 等</p></li> <li><p>DNS 服务器的类型</p> <ul><li>主 DNS 服务器</li> <li>辅助 DNS 服务器</li> <li>缓存 DNS 服务器</li></ul></li> <li><p>系统架构</p> <table><thead><tr><th>内网 ip</th> <th>主机名</th> <th>功能</th></tr></thead> <tbody><tr><td>10.4.7.11</td> <td>HDSS7-11.host.com</td> <td>主 DNS 服务</td></tr> <tr><td>10.4.7.12</td> <td>HDSS7-12.host.com</td> <td>辅 DNS 服务</td></tr></tbody></table></li> <li><p>软件版本</p> <ul><li>OS:CentOS7.6</li> <li>Bind9:bind.X86_64</li></ul></li> <li><p>docker 主机设置</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>docker run -d -p <span class="token number">5022</span>:22 --name centos --privileged<span class="token operator">=</span>true centos:7 /usr/sbin/init
+docker <span class="token builtin class-name">exec</span> -it centos /bin/bash
+yum -y <span class="token function">install</span> <span class="token builtin class-name">bind</span> bind-utils net-tools
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></li></ol> <ol start="6"><li>安装部署及配置详解</li></ol> <blockquote><p><a href="https://blog.stanley.wang/2018/12/16/%E5%AE%9E%E9%AA%8C%E6%96%87%E6%A1%A31%EF%BC%9ABIND9%E7%9A%84%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" target="_blank" rel="noopener noreferrer">dns<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <h1 id="实验文档-1：bind9-的安装部署"><a href="#实验文档-1：bind9-的安装部署" class="header-anchor">#</a> 实验文档 1：BIND9 的安装部署</h1> <hr> <h1 id="安装部署-bind9"><a href="#安装部署-bind9" class="header-anchor">#</a> 安装部署 BIND9</h1> <h2 id="操作系统版本和内核版本"><a href="#操作系统版本和内核版本" class="header-anchor">#</a> 操作系统版本和内核版本</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>#cat /etc/redhat-release
+CentOS Linux release 7.6.1810 (Core)
+
+#uname -a
+Linux node 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="使用-yum-安装-bind9"><a href="#使用-yum-安装-bind9" class="header-anchor">#</a> 使用 yum 安装 BIND9</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>#yum install bind
+=============================================================================================================================================================
+ Package                                       Arch                          Version                                    Repository                      Size
+=============================================================================================================================================================
+Installing:
+ bind                                          x86_64                        32:9.9.4-73.el7_6                          updates                        1.8 M
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>安装的版本为<code>9.9.4</code></p> <h2 id="bind9-主配置文件-etc-named-conf"><a href="#bind9-主配置文件-etc-named-conf" class="header-anchor">#</a> BIND9 主配置文件/etc/named.conf</h2> <ol><li><p>主配置文件的格式</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>options{
+     //全局选项
+}
+zone　&quot;zone name&quot; {
+   //定于区域
+}
+logging{
+    //日志文件
+}
+include：加载别的文件
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div></li> <li><p>主配置文件的配置注意事项</p> <blockquote><ul><li>语法严格，分号，空格</li> <li>文件的权限，属主：root，属组：named，640</li></ul></blockquote></li> <li><p>主配置文件范例</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>options {
+	listen-on port 53 { 10.4.7.11; };
+	directory 	&quot;/var/named&quot;;
+	dump-file 	&quot;/var/named/data/cache_dump.db&quot;;
+	statistics-file &quot;/var/named/data/named_stats.txt&quot;;
+	memstatistics-file &quot;/var/named/data/named_mem_stats.txt&quot;;
+	allow-query     { any; };
+
+	/*
+	 - If you are building an AUTHORITATIVE DNS server, do NOT enable recursion.
+	 - If you are building a RECURSIVE (caching) DNS server, you need to enable
+	   recursion.
+	 - If your recursive DNS server has a public IP address, you MUST enable access
+	   control to limit queries to your legitimate users. Failing to do so will
+	   cause your server to become part of large scale DNS amplification
+	   attacks. Implementing BCP38 within your network would greatly
+	   reduce such attack surface
+	*/
+	recursion yes;
+
+		dnssec-enable no;
+		dnssec-validation no;
+
+	/* Path to ISC DLV key */
+	bindkeys-file &quot;/etc/named.iscdlv.key&quot;;
+
+	managed-keys-directory &quot;/var/named/dynamic&quot;;
+
+	pid-file &quot;/run/named/named.pid&quot;;
+	session-keyfile &quot;/run/named/session.key&quot;;
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div></li></ol> <p>logging {
+channel default_debug {
+file &quot;data/named.run&quot;;
+severity dynamic;
+};
+};</p> <p>zone &quot;.&quot; IN {
+type hint;
+file &quot;named.ca&quot;;
+};</p> <p>include &quot;/etc/named.rfc1912.zones&quot;;
+include &quot;/etc/named.root.key&quot;;</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+## BIND9 服务的启动
+
+### 检查配置文件
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h1 id="named-checkconf"><a href="#named-checkconf" class="header-anchor">#</a> named-checkconf</h1> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+没有报错就是正常的
+
+### 启动 BIND9 服务
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h1 id="systemctl-start-named"><a href="#systemctl-start-named" class="header-anchor">#</a> systemctl start named</h1> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+### 检查 BIND9 服务状态
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h1 id="systemctl-status-named"><a href="#systemctl-status-named" class="header-anchor">#</a> systemctl status named</h1> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+这样就完成了一个最基本的转发 DNS 的部署，它可以为我们的内网客户端提供 DNS 递归查询，例如查询并返回`www.baidu.com`的解析结果。
+
+## 验证解析
+
+### 配置 DNS 服务器指向
+
+在/etc/resole 里配置 DNS 服务器的 ip 地址为我们部署的主机 ip
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h1 id="cat-etc-resolv-conf"><a href="#cat-etc-resolv-conf" class="header-anchor">#</a> cat /etc/resolv.conf</h1> <h1 id="generated-by-networkmanager"><a href="#generated-by-networkmanager" class="header-anchor">#</a> Generated by NetworkManager</h1> <p>nameserver 10.4.7.11</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+### 验证解析
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h1 id="ping-baidu-com"><a href="#ping-baidu-com" class="header-anchor">#</a> ping baidu.com</h1> <p>PING baidu.com (220.181.57.216) 56(84) bytes of data.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+## DNS 正解,反解配置详解
+
+- DNS 的自定义区域的配置(file 是区域数据库文件,allow-update 是 ip 列表或者 acl 访问控制)
+
+- ![image-20210325132307087](https://gitee.com/chobits01/image/raw/master/image/image-20210325132307087.png)
+
+- 区域数据库文件配置
+
+- ![image-20210325133340609](https://gitee.com/chobits01/image/raw/master/image/image-20210325133340609.png)
+
+- ![image-20210325134329489](https://gitee.com/chobits01/image/raw/master/image/image-20210325134329489.png)
+
+- 资源记录配置详解
+
+- ```shell
+  host.com.	600	IN SOA dns.host.com. riku7032.163.com. (
+  				2019030301 ;serial number
+  				10800      ;refresh time 3 hours
+  				900        ;retry time 15 mins
+  				604800     ;expire time 1 week
+  				86400      ;negative answer ttl 1 day
+  )
+  host.com.	600	IN NS dns.host.com.
+
+  dns.host.com.	60	IN A 172.17.0.3
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><ul><li><div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token variable">$TTL</span> <span class="token number">600</span>  <span class="token punctuation">;</span><span class="token number">10</span> minutes
+@    IN SOA dns.host.com. riku7032.163.com. <span class="token punctuation">(</span> <span class="token number">2019030301</span> <span class="token number">10800</span> <span class="token number">900</span> <span class="token number">604800</span> <span class="token number">86400</span> <span class="token punctuation">)</span>
+	    NS  dns.host.com.
+<span class="token variable">$ORIGIN</span> host.com.
+<span class="token variable">$TTL</span> <span class="token number">60</span>   <span class="token punctuation">;</span><span class="token number">1</span> minute
+dns     A <span class="token number">172.17</span>.0.3
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div></li></ul> <h1 id="实验文档-2：自定义正解域"><a href="#实验文档-2：自定义正解域" class="header-anchor">#</a> 实验文档 2：自定义正解域</h1> <p><a href="https://blog.stanley.wang/2018/12/16/%E5%AE%9E%E9%AA%8C%E6%96%87%E6%A1%A32%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AD%A3%E8%A7%A3%E5%9F%9F/" target="_blank" rel="noopener noreferrer"><img src="https://s2.googleusercontent.com/s2/favicons?domain=blog.stanley.wang" alt="img"><strong>blog.stanley.wang</strong>/2018/12/16/实验文档 2：自定义正解域<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h1 id="自定义区域配置文件"><a href="#自定义区域配置文件" class="header-anchor">#</a> 自定义区域配置文件</h1> <p>自定义区域的配置范例如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>zone &quot;host.com&quot; IN {
+        type  master;
+        file  &quot;host.com.zone&quot;;
+        allow-update { 10.4.7.11;10.4.7.12; };
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>这里自定义了一个 host.com 的主机域，可以放在/etc/named.rfc1912.zones 文件中，也可以放置在自定义的文件中，在/etc/named.conf 里 include 进来</p> <blockquote><p>主机域</p> <ul><li>主机域和业务域无关，且建议分开</li> <li>主机域其实是一个假域，也就是说，主机域其实是不能解析到互联网上的，它只对局域网（内网）提供服务</li></ul></blockquote> <h1 id="自定义区域数据库文件"><a href="#自定义区域数据库文件" class="header-anchor">#</a> 自定义区域数据库文件</h1> <ul><li>一般而言是文本文件，且只包含<strong>资源记录</strong>、<strong>宏定义</strong>和<strong>注释</strong></li> <li>需在自定义区域配置文件中指定存放路径，可以绝对路径或相对路径（相对于/var/named 目录）</li> <li>注意文件的属性（属主、属组及权限）</li></ul> <h2 id="配置范例"><a href="#配置范例" class="header-anchor">#</a> 配置范例</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ORIGIN .
+$TTL 600	; 10 minutes
+host.com			IN SOA	ns1.host.com. dnsadmin.host.com. (
+				2018121601 ; serial
+				10800      ; refresh (3 hours)
+				900        ; retry (15 minutes)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+				NS   ns1.host.com.
+$ORIGIN host.com.
+$TTL 60	; 1 minute
+ns1                             A    10.4.7.11
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="资源记录（resource-record）"><a href="#资源记录（resource-record）" class="header-anchor">#</a> 资源记录（Resource Record）</h2> <h3 id="资源记录格式"><a href="#资源记录格式" class="header-anchor">#</a> 资源记录格式</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>name [ttl(缓存时间)] IN 资源记录类型（RRtype）  Value
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="常用资源记录类型（rr-type）"><a href="#常用资源记录类型（rr-type）" class="header-anchor">#</a> 常用资源记录类型（RR-type）</h3> <h4 id="soa-记录"><a href="#soa-记录" class="header-anchor">#</a> SOA 记录</h4> <p>SOA: 起始授权，只能有一条</p> <ul><li>name:只能是区域名称，通常可以简写为@，例如：od.com.</li> <li>value:有 n 个数值，最主要的是主 DNS 服务器的 FQDN，点不可省略</li></ul> <p><strong>注意</strong>：SOA 必须是区域数据库文件第一条记录</p> <blockquote><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@ 600 IN SOA  dns.host.com. 管理员邮箱（dnsadmin.host.com.）（
+     序列号(serial number) ;注释内容，十进制数据，不能超过10位，通常使用日期时间戳，例如2018121601
+     刷新时间(refresh time) ;即每隔多久到主服务器检查一次
+     重试时间(retry time) ;应该小于refresh time
+     过期时间(expire time);当辅助DNS服务器无法联系上主DNS服务器时，辅助DNS服务器可以在多长时间内认为其缓存是有效的，并供用户查询。
+     netgative answer ttl ;非权威应答的ttl，缓存DNS服务器可以缓存记录多长时间
+ ）
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div></blockquote> <h4 id="ns-记录"><a href="#ns-记录" class="header-anchor">#</a> NS 记录</h4> <p>NS：可以有多条，每一个 NS 记录，<strong>必须</strong>对应一个 A 记录</p> <ul><li><p>name:区域名称，通常可以简写为@</p></li> <li><p>value:DNS 服务器的 FQDN(可以使用相对名称)</p> <blockquote><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@ 600 IN NS ns1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></blockquote></li></ul> <h4 id="a-记录"><a href="#a-记录" class="header-anchor">#</a> A 记录</h4> <p>A：只能定义在正向区域数据库文件中（ipv4-&gt;FQDN）</p> <ul><li><p>name:FQDN（可以使用相对名称)</p></li> <li><p>value:IP</p> <blockquote><p>例子：(可以给一同一个域名通过轮询配置 2 个不同的 ip 地址)</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>www  600(单位s) IN A 10.4.7.11
+www  600(单位s) IN A 10.4.7.12
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></blockquote></li></ul> <p><strong>注</strong> 可以做轮询</p> <h4 id="mx-记录"><a href="#mx-记录" class="header-anchor">#</a> MX 记录</h4> <p>MX:邮件交换记录，可以有多个（用的不多）</p> <ul><li><p>name:区域名称，用于标识 smtp 服务器</p></li> <li><p>value:包含优先级和 FQDN</p></li> <li><p>优先级:0-99，数字越小，级别越高，</p> <blockquote><p>例子：</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>@ 600 IN MX 10 mail
+@ 600 IN MX 20 smtp
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li></ul> <h4 id="cname-记录"><a href="#cname-记录" class="header-anchor">#</a> CNAME 记录</h4> <p>CNAME：canonical name，别名（FQDN-&gt;FQDN）</p> <ul><li><p>name ：FQDN</p></li> <li><p>value :FQDN</p> <blockquote><p>例子：</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>eshop IN CNAME www
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></li></ul> <h2 id="宏定义"><a href="#宏定义" class="header-anchor">#</a> 宏定义</h2> <ul><li>$ORIGIN .</li> <li>$TTL 60</li></ul> <h2 id="注释"><a href="#注释" class="header-anchor">#</a> 注释</h2> <p>区域数据库文件中使用<code>;</code>（分号）来进行注释</p> <h1 id="实战正解主机域配置"><a href="#实战正解主机域配置" class="header-anchor">#</a> 实战正解主机域配置</h1> <h2 id="在-etc-named-rfc1912-zones-文件内最下，添加以下内容"><a href="#在-etc-named-rfc1912-zones-文件内最下，添加以下内容" class="header-anchor">#</a> 在/etc/named.rfc1912.zones 文件内最下，添加以下内容</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>zone &quot;host.com&quot; IN {
+        type  master;
+        file  &quot;host.com.zone&quot;;
+        allow-update { 10.4.7.11;10.4.7.12; };
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="在-var-named-下创建-host-com-zone-文件，写入以下内容"><a href="#在-var-named-下创建-host-com-zone-文件，写入以下内容" class="header-anchor">#</a> 在/var/named 下创建 host.com.zone 文件，写入以下内容</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>/var/named/host.com.zone
+$TTL 600	; 10 minutes
+@       		IN SOA	dns.host.com. 87527941.qq.com. (
+				2018121601 ; serial
+				10800      ; refresh (3 hours)
+				900        ; retry (15 minutes)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			NS   dns.host.com.
+$ORIGIN host.com.
+$TTL 60	; 1 minute
+HDSS7-11 	        A    10.4.7.11
+dns      	        A    10.4.7.11
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>三种配置方式：</p> <ul><li>用宏定义$ORIGIN . 下面用 host.com</li> <li>不用宏定义，下面用@</li> <li>不用宏定义，下面用 host.com.</li></ul> <h2 id="检查配置并生效"><a href="#检查配置并生效" class="header-anchor">#</a> 检查配置并生效</h2> <h3 id="检查自定义区域配置"><a href="#检查自定义区域配置" class="header-anchor">#</a> 检查自定义区域配置</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#named-checkzone host.com. /var/named/host.com.zone
+zone host.com/IN: loaded serial 2018121601
+OK
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="检查主配置文件"><a href="#检查主配置文件" class="header-anchor">#</a> 检查主配置文件</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#named-checkconf
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="重启-named-服务"><a href="#重启-named-服务" class="header-anchor">#</a> 重启 named 服务</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#systemctl restart named
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="检查该正解域是否生效"><a href="#检查该正解域是否生效" class="header-anchor">#</a> 检查该正解域是否生效</h3> <p>配置主机名</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># hostnamectl set-hostname hdss7-11.host.com
+# logout
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>开启第二台虚机，配置好 DNS 后验证解析</p> <h2 id="维护正解域（增、删、改、查）"><a href="#维护正解域（增、删、改、查）" class="header-anchor">#</a> 维护正解域（增、删、改、查）</h2> <h3 id="增加一条资源记录"><a href="#增加一条资源记录" class="header-anchor">#</a> 增加一条资源记录</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>/var/named/host.com.zone
+$TTL 600	; 10 minutes
+@       		IN SOA	dns.host.com. 87527941.qq.com. (
+				2018121602 ; serial
+				10800      ; refresh (3 hours)
+				900        ; retry (15 minutes)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			NS   dns.host.com.
+$ORIGIN host.com.
+$TTL 60	; 1 minute
+HDSS7-11 	        A    10.4.7.11
+HDSS7-12 	        A    10.4.7.12
+dns      	        A    10.4.7.11
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>增加一个 HDSS7-12.host.com 的 A 记录解析，并验证</p> <h3 id="修改一条资源记录"><a href="#修改一条资源记录" class="header-anchor">#</a> 修改一条资源记录</h3> <p>给<code>10.4.7.12</code>这台主机增加一个辅助 ip</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># ip addr add 10.4.7.13/24 dev eth0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>修改 DNS 服务器上的区域数据库文件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>/var/named/host.com.zone
+$TTL 600	; 10 minutes
+@       		IN SOA	dns.host.com. 87527941.qq.com. (
+				2018121603 ; serial
+				10800      ; refresh (3 hours)
+				900        ; retry (15 minutes)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			NS   dns.host.com.
+$ORIGIN host.com.
+$TTL 60	; 1 minute
+HDSS7-11 	        A    10.4.7.11
+HDSS7-12 	        A    10.4.7.13
+dns      	        A    10.4.7.11
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>修改 HDSS7-12.host.com 的 A 记录解析，指向新增的辅助 ip<code>10.4.7.13</code>
+检查：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>ping HDSS7-12.host.com
+ING hdss7-12.host.com (10.4.7.13) 56(84) bytes of data.
+64 bytes from 10.4.7.13 (10.4.7.13): icmp_seq=1 ttl=64 time=0.318 ms
+64 bytes from 10.4.7.13 (10.4.7.13): icmp_seq=2 ttl=64 time=0.206 ms
+64 bytes from 10.4.7.13 (10.4.7.13): icmp_seq=3 ttl=64 time=0.391 ms
+^C
+--- hdss7-12.host.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 0.206/0.305/0.391/0.076 ms
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="删除一条资源记录"><a href="#删除一条资源记录" class="header-anchor">#</a> 删除一条资源记录</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>/var/named/host.com.zone
+$TTL 600	; 10 minutes
+@       		IN SOA	ns1.host.com. dnsadmin.host.com. (
+				2018121604 ; serial
+				10800      ; refresh (3 hours)
+				900        ; retry (15 minutes)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			NS   ns1.host.com.
+$ORIGIN host.com.
+$TTL 60	; 1 minute
+ns1      	        A    10.4.7.11
+HDSS7-11 	        A    10.4.7.11
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>删除 HDSS7-12.host.com 的 A 记录解析，并验证</p> <h3 id="查询记录"><a href="#查询记录" class="header-anchor">#</a> 查询记录</h3> <p>略</p> <ul><li>DNS 的正向解析与反向解析</li> <li><img src="https://gitee.com/chobits01/image/raw/master/image/image-20210325191034958.png" alt="image-20210325191034958"></li></ul> <h1 id="实验文档-3：自定义反解域"><a href="#实验文档-3：自定义反解域" class="header-anchor">#</a> 实验文档 3：自定义反解域</h1> <p><a href="https://blog.stanley.wang/2018/12/16/%E5%AE%9E%E9%AA%8C%E6%96%87%E6%A1%A33%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%8D%E8%A7%A3%E5%9F%9F/" target="_blank" rel="noopener noreferrer"><img src="https://s2.googleusercontent.com/s2/favicons?domain=blog.stanley.wang" alt="img"><strong>blog.stanley.wang</strong>/2018/12/16/实验文档 3：自定义反解域<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <blockquote></blockquote> <hr> <h1 id="添加反解域的自定义区域配置"><a href="#添加反解域的自定义区域配置" class="header-anchor">#</a> 添加反解域的自定义区域配置</h1> <div class="language- line-numbers-mode"><pre class="language-text"><code>/etc/named.rfc1912.zones
+zone &quot;7.4.10.in-addr.arpa&quot; IN {
+        type master;
+        file &quot;7.4.10.in-addr.arpa.zone&quot;;
+        allow-update { 10.4.7.11;10.4.7.12; };
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h1 id="添加反解域的区域数据库文件"><a href="#添加反解域的区域数据库文件" class="header-anchor">#</a> 添加反解域的区域数据库文件</h1> <div class="language- line-numbers-mode"><pre class="language-text"><code>/var/named/7.4.10.in-addr.arpa.zone
+$TTL 600	; 10 minutes
+@	     		IN SOA	dns.host.com. dnsadmin.host.com. (
+				2018121603 ; serial
+				10800      ; refresh (3 hours)
+				900       ; retry (15 minutes)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			    NS   ns1.host.com.
+$ORIGIN 7.4.10.in-addr.arpa.
+$TTL 60	; 1 minute
+11			PTR		 HDSS7-11.host.com.
+12			PTR		 HDSS7-12.host.com.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p><strong>注意</strong>：一个 IP 只能对应唯一的 FQDN 反解 PTR 记录，且应该与正解 A 记录对应</p> <h1 id="检查反解域的配置"><a href="#检查反解域的配置" class="header-anchor">#</a> 检查反解域的配置</h1> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@hdss7-11 ~]# named-checkzone 7.4.10.in-addr.arpa /var/named/7.4.10.in-addr.arpa.zone
+zone 7.4.10.in-addr.arpa/IN: loaded serial 2018121603
+OK
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h1 id="重启-bind9-服务"><a href="#重启-bind9-服务" class="header-anchor">#</a> 重启 BIND9 服务</h1> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@hdss7-11 ~]# systemctl restart named.service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h1 id="检查解析是否生效"><a href="#检查解析是否生效" class="header-anchor">#</a> 检查解析是否生效</h1> <ul><li><p>方法 1：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@hdss7-11 ~]# dig -t PTR 11.7.4.10.in-addr.arpa. @10.4.7.11 +short
+HDSS7-11.host.com.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li> <li><p>方法 2：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@hdss7-11 ~]# dig -x 10.4.7.11 @10.4.7.11 +short
+HDSS7-11.host.com.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li></ul> <h1 id="增删改"><a href="#增删改" class="header-anchor">#</a> 增删改</h1> <h2 id="增加一条反解记录"><a href="#增加一条反解记录" class="header-anchor">#</a> 增加一条反解记录</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>/var/named/7.4.10.in-addr.arpa.zone
+$TTL 600	; 10 minutes
+@	     		IN SOA	dns.host.com. dnsadmin.host.com. (
+				2018121604 ; serial
+				10800      ; refresh (3 hours)
+				900       ; retry (15 minutes)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			    NS   ns1.host.com.
+$ORIGIN 7.4.10.in-addr.arpa.
+$TTL 60	; 1 minute
+11			PTR		 HDSS7-11.host.com.
+12			PTR		 HDSS7-12.host.com.
+13			PTR		 HDSS7-13.host.com.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h2 id="删除一条反解记录"><a href="#删除一条反解记录" class="header-anchor">#</a> 删除一条反解记录</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>/var/named/7.4.10.in-addr.arpa.zone
+$TTL 600	; 10 minutes
+@	     		IN SOA	dns.host.com. dnsadmin.host.com. (
+				2018121605 ; serial
+				10800      ; refresh (3 hours)
+				900       ; retry (15 minutes)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			    NS   ns1.host.com.
+$ORIGIN 7.4.10.in-addr.arpa.
+$TTL 60	; 1 minute
+11			PTR		 HDSS7-11.host.com.
+12			PTR		 HDSS7-12.host.com.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="修改一条反解记录"><a href="#修改一条反解记录" class="header-anchor">#</a> 修改一条反解记录</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>/var/named/7.4.10.in-addr.arpa.zone
+$TTL 600	; 10 minutes
+@	     		IN SOA	dns.host.com. dnsadmin.host.com. (
+				2018121606 ; serial
+				10800      ; refresh (3 hours)
+				900       ; retry (15 minutes)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			    NS   ns1.host.com.
+$ORIGIN 7.4.10.in-addr.arpa.
+$TTL 60	; 1 minute
+11			PTR		 HDSS7-11.host.com.
+12			PTR		 HDSS7-13.host.com.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><ul><li>DNS 服务生产维护经验</li></ul> <h1 id="dns-主辅同步配置详解"><a href="#dns-主辅同步配置详解" class="header-anchor">#</a> DNS 主辅同步配置详解</h1> <ul><li>DNS 常用工具介绍</li> <li><img src="https://gitee.com/chobits01/image/raw/master/image/image-20210325203938280.png" alt="image-20210325203938280"></li></ul> <h1 id="实验文档-5：dns-工具和-rndc-远程管理-dns-实战"><a href="#实验文档-5：dns-工具和-rndc-远程管理-dns-实战" class="header-anchor">#</a> 实验文档 5：DNS 工具和 rndc 远程管理 DNS 实战</h1> <p><a href="https://blog.stanley.wang/2018/12/16/%E5%AE%9E%E9%AA%8C%E6%96%87%E6%A1%A35%EF%BC%9ADNS%E5%B7%A5%E5%85%B7%E5%92%8Crndc%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86DNS%E5%AE%9E%E6%88%98/" target="_blank" rel="noopener noreferrer"><img src="https://s2.googleusercontent.com/s2/favicons?domain=blog.stanley.wang" alt="img"><strong>blog.stanley.wang</strong>/2018/12/16/实验文档 5：DNS 工具和 rndc 远程管理 DNS 实战<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <hr> <h1 id="dns-管理工具"><a href="#dns-管理工具" class="header-anchor">#</a> DNS 管理工具</h1> <h2 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code># yum install bind-utils -y
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="工具一：nslookup"><a href="#工具一：nslookup" class="header-anchor">#</a> 工具一：nslookup</h2> <p>Windows 操作系统也有的一个常用工具</p> <h3 id="交互式"><a href="#交互式" class="header-anchor">#</a> 交互式</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#nslookup
+&gt; server localhost
+Default server: localhost
+Address: 127.0.0.1#53
+Default server: localhost
+Address: 127.0.0.1#53
+&gt; www.bkjf-inc.com
+Server:		localhost
+Address:	127.0.0.1#53
+
+Name:	www.bkjf-inc.com
+Address: 192.144.198.128
+-------以上是权威应答
+&gt; server 8.8.8.8
+Default server: 8.8.8.8
+Address: 8.8.8.8#53
+&gt; www.bkjf-inc.com
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+Name:	www.bkjf-inc.com
+Address: 192.144.198.128
+-------以上是非权威应答
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="非交互式"><a href="#非交互式" class="header-anchor">#</a> 非交互式</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#nslookup www.baidu.com
+Server:		183.60.83.19
+Address:	183.60.83.19#53
+
+Non-authoritative answer:
+www.baidu.com	canonical name = www.a.shifen.com.
+Name:	www.a.shifen.com
+Address: 220.181.112.244
+Name:	www.a.shifen.com
+Address: 220.181.111.37
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="工具二：host"><a href="#工具二：host" class="header-anchor">#</a> 工具二：host</h2> <p>简单粗暴的小工具</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#host -t A www.baidu.com
+www.baidu.com is an alias for www.a.shifen.com.
+www.a.shifen.com has address 220.181.112.244
+www.a.shifen.com has address 220.181.111.37
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="工具三：dig"><a href="#工具三：dig" class="header-anchor">#</a> 工具三：dig</h2> <p>功能强大的 DNS 工具，重点掌握</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#dig -t A www.baidu.com @localhost
+
+; &lt;&lt;&gt;&gt; DiG 9.9.4-RedHat-9.9.4-73.el7_6 &lt;&lt;&gt;&gt; -t A www.baidu.com @localhost
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 46476
+;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 5, ADDITIONAL: 6
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;www.baidu.com.			IN	A
+
+;; ANSWER SECTION:
+www.baidu.com.		1200	IN	CNAME	www.a.shifen.com.
+www.a.shifen.com.	300	IN	A	220.181.111.37
+www.a.shifen.com.	300	IN	A	220.181.112.244
+
+;; AUTHORITY SECTION:
+a.shifen.com.		1200	IN	NS	ns3.a.shifen.com.
+a.shifen.com.		1200	IN	NS	ns2.a.shifen.com.
+a.shifen.com.		1200	IN	NS	ns4.a.shifen.com.
+a.shifen.com.		1200	IN	NS	ns5.a.shifen.com.
+a.shifen.com.		1200	IN	NS	ns1.a.shifen.com.
+
+;; ADDITIONAL SECTION:
+ns5.a.shifen.com.	1200	IN	A	180.76.76.95
+ns1.a.shifen.com.	1200	IN	A	61.135.165.224
+ns3.a.shifen.com.	1200	IN	A	112.80.255.253
+ns4.a.shifen.com.	1200	IN	A	14.215.177.229
+ns2.a.shifen.com.	1200	IN	A	220.181.57.142
+
+;; Query time: 561 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Fri Mar 01 09:45:51 CST 2019
+;; MSG SIZE  rcvd: 271
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><p>常用参数：</p> <ul><li>+[no]addition</li> <li>+short</li></ul> <h2 id="工具四：nsupdate"><a href="#工具四：nsupdate" class="header-anchor">#</a> 工具四：nsupdate</h2> <p>不常用，需要在 zone 配置文件里声明<code>allow-update { acl; };</code></p> <h3 id="调整-zone-配置文件"><a href="#调整-zone-配置文件" class="header-anchor">#</a> 调整 zone 配置文件</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>/etc/named.rfc1912.zones
+zone &quot;bkjf-inc.com&quot; IN {
+        type master;
+        file &quot;bkjf-inc.com.zone&quot;;
+        allow-update { 10.4.7.11/32; };
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>重启 named 服务</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># systemctl restart named
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="新增一条记录"><a href="#新增一条记录" class="header-anchor">#</a> 新增一条记录</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#nsupdate
+&gt; server 10.4.7.11
+&gt; update add update.bkjf-inc.com 60 A 10.4.7.11
+&gt; send
+&gt; quit
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>检查：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#nslookup update.bkjf-inc.com
+Server:		10.4.7.11
+Address:	10.4.7.11#53
+
+Name:	update.bkjf-inc.com
+Address: 10.4.7.11
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="查看区域数据库文件"><a href="#查看区域数据库文件" class="header-anchor">#</a> 查看区域数据库文件</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>/var/named/
+-rw-r--r-- 1 root  root   335 Feb 28 10:57 bkjf-inc.com.zone
+-rw-r--r-- 1 named named  733 Mar  1 09:54 bkjf-inc.com.zone.jnl
+#file bkjf-inc.com.zone.jnl
+bkjf-inc.com.zone.jnl: data
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>产生了一个 jnl 的数据文件，不能使用文本编辑器打开</p> <blockquote><p>jnl 文件（journal 文件）是 BIND9 动态更新的时候记录更新内容所生成的日志文件。</p></blockquote> <h3 id="删除一条记录"><a href="#删除一条记录" class="header-anchor">#</a> 删除一条记录</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#nsupdate
+&gt; server 10.4.7.11
+&gt; update delete update.bkjf-inc.com
+&gt; send
+&gt; quit
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>检查</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#nslookup update.bkjf-inc.com
+Server:		10.4.7.11
+Address:	10.4.7.11#53
+
+** server can't find update.bkjf-inc.com: NXDOMAIN
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="更新一条记录"><a href="#更新一条记录" class="header-anchor">#</a> 更新一条记录</h3> <p>不支持直接更新，需要先执行删除，再新增</p> <h3 id="nsupdate-使用小结："><a href="#nsupdate-使用小结：" class="header-anchor">#</a> nsupdate 使用小结：</h3> <ul><li>优点
+<ul><li>命令简单，便于记忆</li> <li>不用手动变更 SOA 的 serial 序列号，自动滚动</li> <li>不需要重启/重载 BIND9 服务/配置，生效快</li> <li>可以通过配置 acl 实现远程管理</li></ul></li> <li>缺点
+<ul><li>jnl 文件无法使用文本文件的方式打开</li> <li>只能依赖完全区域传送查看所有区域的记录</li> <li>更新操作复杂，先删再增</li> <li>远程管理有安全隐患，需要加强审计</li> <li>动态域在 rndc 管理上多一步</li></ul></li></ul> <h1 id="rndc-远程管理-dns"><a href="#rndc-远程管理-dns" class="header-anchor">#</a> rndc 远程管理 DNS</h1> <h2 id="生成-rndc-key"><a href="#生成-rndc-key" class="header-anchor">#</a> 生成 rndc-key</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>#rndc-confgen -r /dev/urandom
+# Start of rndc.conf
+key &quot;rndc-key&quot; {
+	algorithm hmac-md5;
+	secret &quot;MFM4AocpN0lcoL4fN2lA6Q==&quot;;
+};
+
+options {
+	default-key &quot;rndc-key&quot;;
+	default-server 127.0.0.1;
+	default-port 953;
+};
+# End of rndc.conf
+
+# Use with the following in named.conf, adjusting the allow list as needed:
+# key &quot;rndc-key&quot; {
+# 	algorithm hmac-md5;
+# 	secret &quot;MFM4AocpN0lcoL4fN2lA6Q==&quot;;
+# };
+#
+# controls {
+# 	inet 127.0.0.1 port 953
+# 		allow { 127.0.0.1; } keys { &quot;rndc-key&quot;; };
+# };
+# End of named.conf
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h2 id="把-rndc-key-和-controls-配置到-bind-的主配置文件的-options-段里"><a href="#把-rndc-key-和-controls-配置到-bind-的主配置文件的-options-段里" class="header-anchor">#</a> 把 rndc-key 和 controls 配置到 bind 的主配置文件的 options 段里</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>/etc/named.conf
+key &quot;rndc-key&quot; {
+	algorithm hmac-md5;
+	secret &quot;MFM4AocpN0lcoL4fN2lA6Q==&quot;;
+};
+
+controls {
+      inet 10.4.7.11 port 953
+               allow { 10.4.7.11;10.4.7.12; } keys { &quot;rndc-key&quot;; };
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>**注意：**这里要配置一下 controls 段的 acl，限定好哪些主机可以使用 rndc 管理 DNS 服务</p> <h2 id="重启-bind9-服务-2"><a href="#重启-bind9-服务-2" class="header-anchor">#</a> 重启 bind9 服务</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code># systemctl restart named
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>rndc 的服务端监听在 953 端口，检查一下端口是否起来</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># netstat -luntp|grep 953
+tcp        0      0 10.4.7.11:953           0.0.0.0:*               LISTEN      11136/named
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="在远程管理主机上安装-bind"><a href="#在远程管理主机上安装-bind" class="header-anchor">#</a> 在远程管理主机上安装 bind</h2> <p>rndc 命令在 bind 包里，所以远程管理主机需要安装 bind（不需要启动 named）</p> <h2 id="在远程管理主机上做-rndc-conf"><a href="#在远程管理主机上做-rndc-conf" class="header-anchor">#</a> 在远程管理主机上做 rndc.conf</h2> <p>使用 rndc 进行远程管理的主机上，都需要配置 rndc.conf，且 rndc-key 要和 DNS 服务器上的 key 一致</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>/etc/rndc.conf
+key &quot;rndc-key&quot; {
+	algorithm hmac-md5;
+	secret &quot;MFM4AocpN0lcoL4fN2lA6Q==&quot;;
+};
+
+options {
+	default-key &quot;rndc-key&quot;;
+	default-server 10.4.7.11;
+	default-port 953;
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="使用-rndc-命令远程管理-dns"><a href="#使用-rndc-命令远程管理-dns" class="header-anchor">#</a> 使用 rndc 命令远程管理 DNS</h2> <h3 id="查询-dns-服务状态（可以取值做监控）"><a href="#查询-dns-服务状态（可以取值做监控）" class="header-anchor">#</a> 查询 DNS 服务状态（可以取值做监控）</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#rndc status
+version: 9.9.4-RedHat-9.9.4-73.el7_6 &lt;id:8f9657aa&gt;
+CPUs found: 2
+worker threads: 2
+UDP listeners per interface: 2
+number of zones: 105
+debug level: 0
+xfers running: 0
+xfers deferred: 0
+soa queries in progress: 0
+query logging is OFF
+recursive clients: 0/0/1000
+tcp clients: 0/100
+server is up and running
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h3 id="管理静态域-allow-update-none"><a href="#管理静态域-allow-update-none" class="header-anchor">#</a> 管理静态域(allow-update { none; }😉</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>静态域zone文件
+zone &quot;od.com&quot; IN {
+	type master;
+	file &quot;od.com.zone&quot;;
+	allow-update { none; };
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>增、删、改一条记录后</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># rndc reload od.com
+zone reload up-to-date
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="管理动态域（allow-update-10-4-7-11-）"><a href="#管理动态域（allow-update-10-4-7-11-）" class="header-anchor">#</a> 管理动态域（allow-update { 10.4.7.11; };）</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>动态域zone文件
+zone &quot;host.com&quot; IN {
+	type master;
+	file &quot;host.com.zone&quot;;
+	allow-update { 10.4.7.11; };
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>增、删、改一条记录后</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#rndc reload host.com
+rndc: 'reload' failed: dynamic zone
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>直接 reload 会报错，需要先<code>freeze</code>再<code>thaw</code>才行</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#rndc freeze host.com
+#rndc thaw host.com
+The zone reload and thaw was successful.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ul><li>主辅同步配置要点</li> <li><img src="https://gitee.com/chobits01/image/raw/master/image/image-20210326084438164.png" alt="image-20210326084438164"></li> <li>实战 DNS 主辅同步架构配置</li></ul> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token variable">$ORIGIN</span> <span class="token builtin class-name">.</span>
+<span class="token variable">$TTL</span> <span class="token number">600</span>	<span class="token punctuation">;</span> <span class="token number">10</span> minutes
+<span class="token number">0.17</span>.172.in-addr.arpa	IN SOA	dns.host.com. riku7032.163.com. <span class="token punctuation">(</span>
+				<span class="token number">2019030301</span> <span class="token punctuation">;</span> serial
+				<span class="token number">10800</span>      <span class="token punctuation">;</span> refresh <span class="token punctuation">(</span><span class="token number">3</span> hours<span class="token punctuation">)</span>
+				<span class="token number">900</span>        <span class="token punctuation">;</span> retry <span class="token punctuation">(</span><span class="token number">15</span> minutes<span class="token punctuation">)</span>
+				<span class="token number">64800</span>      <span class="token punctuation">;</span> expire <span class="token punctuation">(</span><span class="token number">18</span> hours<span class="token punctuation">)</span>
+				<span class="token number">86400</span>      <span class="token punctuation">;</span> minimum <span class="token punctuation">(</span><span class="token number">1</span> day<span class="token punctuation">)</span>
+				<span class="token punctuation">)</span>
+			NS	dns.host.com.
+<span class="token variable">$ORIGIN</span> <span class="token number">0.17</span>.172.in-addr.arpa.
+<span class="token variable">$TTL</span> <span class="token number">60</span>	<span class="token punctuation">;</span> <span class="token number">1</span> minute
+<span class="token number">2</span>			PTR	hdss7-11.host.com.
+<span class="token number">3</span>			PTR	hdss7-12.host.com.
+<span class="token number">4</span>			PTR	hdss7-20.host.com.
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h1 id="实验文档-4：dns-主辅同步"><a href="#实验文档-4：dns-主辅同步" class="header-anchor">#</a> 实验文档 4：DNS 主辅同步</h1> <h1 id="dns-主辅同步架构"><a href="#dns-主辅同步架构" class="header-anchor">#</a> DNS 主辅同步架构</h1> <table><thead><tr><th>IP</th> <th>主机名</th> <th>功能</th></tr></thead> <tbody><tr><td>10.4.7.11</td> <td>HDSS7-11.host.com</td> <td>DNS 主</td></tr> <tr><td>10.4.7.12</td> <td>HDSS7-12.host.com</td> <td>DNS 辅</td></tr> <tr><td><strong>注意</strong>：所有资源记录的增、删、改的操作，均在主 DNS 上进行，辅助 DNS 仅提供查询功能</td> <td></td> <td></td></tr></tbody></table> <h1 id="辅助-dns-主机上安装部署-bind9"><a href="#辅助-dns-主机上安装部署-bind9" class="header-anchor">#</a> 辅助 DNS 主机上安装部署 BIND9</h1> <h2 id="安装-bind9-软件"><a href="#安装-bind9-软件" class="header-anchor">#</a> 安装 BIND9 软件</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>#yum install bind
+=============================================================================================================================================================
+ Package                                       Arch                          Version                                    Repository                      Size
+=============================================================================================================================================================
+Installing:
+ bind                                          x86_64                        32:9.9.4-73.el7_6                          updates                        1.8 M
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><strong>注意</strong>：辅助 DNS 的 BIND9 软件版本应小于等于主 DNS 的 BIND9 软件版本</p> <h2 id="修改辅助-dns-主配置文件"><a href="#修改辅助-dns-主配置文件" class="header-anchor">#</a> 修改辅助 DNS 主配置文件</h2> <p>修改主配置文件，并加入<code>masterfile-format text;</code></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>/etc/named.conf
+options {
+  listen-on port 53 { 10.4.7.12; };
+  directory 	&quot;/var/named&quot;;
+  dump-file 	&quot;/var/named/data/cache_dump.db&quot;;
+  statistics-file &quot;/var/named/data/named_stats.txt&quot;;
+  memstatistics-file &quot;/var/named/data/named_mem_stats.txt&quot;;
+  allow-query     { any; };
+  masterfile-format text;
+  /*
+   - If you are building an AUTHORITATIVE DNS server, do NOT enable recursion.
+   - If you are building a RECURSIVE (caching) DNS server, you need to enable
+     recursion.
+   - If your recursive DNS server has a public IP address, you MUST enable access
+     control to limit queries to your legitimate users. Failing to do so will
+     cause your server to become part of large scale DNS amplification
+     attacks. Implementing BCP38 within your network would greatly
+     reduce such attack surface
+  */
+  recursion yes;
+
+  dnssec-enable no;
+  dnssec-validation no;
+
+  /* Path to ISC DLV key */
+  bindkeys-file &quot;/etc/named.iscdlv.key&quot;;
+
+  managed-keys-directory &quot;/var/named/dynamic&quot;;
+
+  pid-file &quot;/run/named/named.pid&quot;;
+  session-keyfile &quot;/run/named/session.key&quot;;
+};
+
+
+logging {
+  channel default_debug {
+    file &quot;data/named.run&quot;;
+    severity dynamic;
+  };
+};
+
+zone &quot;.&quot; IN {
+  type hint;
+  file &quot;named.ca&quot;;
+};
+
+include &quot;/etc/named.rfc1912.zones&quot;;
+include &quot;/etc/named.root.key&quot;;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br></div></div><h1 id="修改主-dns-主配置文件"><a href="#修改主-dns-主配置文件" class="header-anchor">#</a> 修改主 DNS 主配置文件</h1> <h2 id="加入以下配置"><a href="#加入以下配置" class="header-anchor">#</a> 加入以下配置</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>/etc/named.conf
+allow-transfer { 10.4.7.12; };
+also-notify { 10.4.7.12; };
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="检查配置并重启主-dns"><a href="#检查配置并重启主-dns" class="header-anchor">#</a> 检查配置并重启主 DNS</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code># named-checkconf
+# systemctl restart named
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="检查完全区域数据传送"><a href="#检查完全区域数据传送" class="header-anchor">#</a> 检查完全区域数据传送</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@hdss7-12 ~]# dig -t axfr host.com @10.4.7.11
+
+; &lt;&lt;&gt;&gt; DiG 9.9.4-RedHat-9.9.4-73.el7_6 &lt;&lt;&gt;&gt; -t axfr host.com @10.4.7.11
+;; global options: +cmd
+host.com.		600	IN	SOA	dns.host.com. dnsadmin.host.com. 2018121601 10800 900 604800 86400
+host.com.		600	IN	NS	ns1.host.com.
+HDSS7-11.host.com.	60	IN	A	10.4.7.11
+HDSS7-12.host.com.	60	IN	A	10.4.7.12
+ns1.host.com.		60	IN	A	10.4.7.11
+host.com.		600	IN	SOA	dns.host.com. dnsadmin.host.com. 2018121601 10800 900 604800 86400
+;; Query time: 0 msec
+;; SERVER: 10.4.7.11#53(10.4.7.11)
+;; WHEN: Sun Dec 16 14:16:01 CST 2018
+;; XFR size: 6 records (messages 1, bytes 220)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h1 id="辅助-dns-上创建自定义正解区域配置"><a href="#辅助-dns-上创建自定义正解区域配置" class="header-anchor">#</a> 辅助 DNS 上创建自定义正解区域配置</h1> <div class="language- line-numbers-mode"><pre class="language-text"><code>/etc/named.rfc1912.zones
+zone &quot;host.com&quot; IN {
+  type  slave;
+  masters { 10.4.7.11; };
+  file  &quot;slaves/host.com.zone&quot;;
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="检查配置并启动辅助-dns"><a href="#检查配置并启动辅助-dns" class="header-anchor">#</a> 检查配置并启动辅助 DNS</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code># named-checkconf
+# systemctl start named
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="检查同步过来的区域数据库文件"><a href="#检查同步过来的区域数据库文件" class="header-anchor">#</a> 检查同步过来的区域数据库文件</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>/var/named/slaves/host.com.zone
+[root@hdss7-12 slaves]# ll
+-rw-r--r-- 1 named named 392 Feb 10 21:08 host.com.zone
+[root@hdss7-12 slaves]# cat host.com.zone
+$ORIGIN .
+$TTL 600	; 10 minutes
+host.com		IN SOA	dns.host.com. dnsadmin.host.com. (
+				2018121601 ; serial
+				10800      ; refresh (3 hours)
+				900        ; retry (15 minutes)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			NS	ns1.host.com.
+$ORIGIN host.com.
+$TTL 60	; 1 minute
+HDSS7-11		A	10.4.7.11
+HDSS7-12		A	10.4.7.12
+ns1			A	10.4.7.11
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h2 id="检查解析是否正确"><a href="#检查解析是否正确" class="header-anchor">#</a> 检查解析是否正确</h2> <h3 id="使用主-dns-查询一个-a-记录"><a href="#使用主-dns-查询一个-a-记录" class="header-anchor">#</a> 使用主 DNS 查询一个 A 记录</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code># dig -t A HDSS7-11.host.com @10.4.7.11 +short
+10.4.7.11
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="使用辅助-dns-查询一个-a-记录"><a href="#使用辅助-dns-查询一个-a-记录" class="header-anchor">#</a> 使用辅助 DNS 查询一个 A 记录</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code># dig -t A HDSS7-11.host.com @10.4.7.12 +short
+10.4.7.11
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h1 id="辅助-dns-上创建自定义反解区域配置"><a href="#辅助-dns-上创建自定义反解区域配置" class="header-anchor">#</a> 辅助 DNS 上创建自定义反解区域配置</h1> <p>略</p> <h1 id="增加、删除、修改记录，并验证同步"><a href="#增加、删除、修改记录，并验证同步" class="header-anchor">#</a> 增加、删除、修改记录，并验证同步</h1> <p><strong>注意</strong>：一定要手动修改主 DNS 上 SOA 记录里的 serial 值！</p> <h2 id="增加记录"><a href="#增加记录" class="header-anchor">#</a> 增加记录</h2> <h2 id="删除记录"><a href="#删除记录" class="header-anchor">#</a> 删除记录</h2> <h2 id="修改记录"><a href="#修改记录" class="header-anchor">#</a> 修改记录</h2> <h1 id="再增加一个-od-com-的业务域，并验证主辅同步（复习）"><a href="#再增加一个-od-com-的业务域，并验证主辅同步（复习）" class="header-anchor">#</a> 再增加一个 od.com 的业务域，并验证主辅同步（复习）</h1> <h2 id="主-dns-上增加自定义区域"><a href="#主-dns-上增加自定义区域" class="header-anchor">#</a> 主 DNS 上增加自定义区域</h2> <h2 id="主-dns-上增加自定义区域数据库文件"><a href="#主-dns-上增加自定义区域数据库文件" class="header-anchor">#</a> 主 DNS 上增加自定义区域数据库文件</h2> <h2 id="主-dns-上增加自定义区域资源记录"><a href="#主-dns-上增加自定义区域资源记录" class="header-anchor">#</a> 主 DNS 上增加自定义区域资源记录</h2> <h2 id="检查配置并重启主-dns-服务"><a href="#检查配置并重启主-dns-服务" class="header-anchor">#</a> 检查配置并重启主 DNS 服务</h2> <h2 id="辅助-dns-上增加自定义区域"><a href="#辅助-dns-上增加自定义区域" class="header-anchor">#</a> 辅助 DNS 上增加自定义区域</h2> <h2 id="检查完全区域数据传送-2"><a href="#检查完全区域数据传送-2" class="header-anchor">#</a> 检查完全区域数据传送</h2> <h2 id="检查配置并重启辅助-dns-服务"><a href="#检查配置并重启辅助-dns-服务" class="header-anchor">#</a> 检查配置并重启辅助 DNS 服务</h2> <h2 id="验证主辅同步"><a href="#验证主辅同步" class="header-anchor">#</a> 验证主辅同步</h2> <h3 id="分别使用主-dns-和辅助-dns-查询新业务域的-a-记录"><a href="#分别使用主-dns-和辅助-dns-查询新业务域的-a-记录" class="header-anchor">#</a> 分别使用主 DNS 和辅助 DNS 查询新业务域的 A 记录</h3> <h3 id="在主-dns-上新增一条-a-记录，并验证主辅同步"><a href="#在主-dns-上新增一条-a-记录，并验证主辅同步" class="header-anchor">#</a> 在主 DNS 上新增一条 A 记录，并验证主辅同步</h3> <h3 id="在主-dns-上修改一条-a-记录，并验证主辅同步"><a href="#在主-dns-上修改一条-a-记录，并验证主辅同步" class="header-anchor">#</a> 在主 DNS 上修改一条 A 记录，并验证主辅同步</h3> <h3 id="在主-dns-上删除一条-a-记录，并验证主辅同步"><a href="#在主-dns-上删除一条-a-记录，并验证主辅同步" class="header-anchor">#</a> 在主 DNS 上删除一条 A 记录，并验证主辅同步</h3> <h3 id="反解"><a href="#反解" class="header-anchor">#</a> 反解</h3> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>先增后删
+<span class="token punctuation">[</span>root@HDSS7-12 slaves<span class="token punctuation">]</span><span class="token comment"># nsupdate</span>
+<span class="token operator">&gt;</span> server <span class="token number">172.17</span>.0.2
+<span class="token operator">&gt;</span> update <span class="token function">add</span> <span class="token number">0.17</span>.172.in-addr.arpa <span class="token number">600</span> NS ns1.od.com.
+<span class="token operator">&gt;</span> update <span class="token function">add</span> <span class="token number">0.17</span>.172.in-addr.arpa <span class="token number">600</span> NS ns2.od.com.
+<span class="token operator">&gt;</span> send
+<span class="token operator">&gt;</span> quit
+
+<span class="token punctuation">[</span>root@HDSS7-12 slaves<span class="token punctuation">]</span><span class="token comment"># nsupdate</span>
+<span class="token operator">&gt;</span> server <span class="token number">172.17</span>.0.2
+<span class="token operator">&gt;</span> update del <span class="token number">0.17</span>.172.in-addr.arpa. NS dns.host.com.
+<span class="token operator">&gt;</span> send
+<span class="token operator">&gt;</span> quit
+
+<span class="token function">dig</span> -t axfr <span class="token number">0.17</span>.172.in-addr.arpa.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h1 id="客户端配置-dns-解析高可用"><a href="#客户端配置-dns-解析高可用" class="header-anchor">#</a> 客户端配置 DNS 解析高可用</h1> <p>在客户端主机（以 Linux 主机为例，Windows 和 Mac 操作系统略）配置主、辅 DNS</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>/etc/resolv.conf
+#cat /etc/resolv.conf
+# Generated by NetworkManager
+search host.com od.com
+nameserver 10.4.7.11
+nameserver 10.4.7.12
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>这样客户端高可用就配置好了，任意一个 DNS 服务器宕机也不会影响正常解析</p> <ul><li>新增一个业务域,实现主辅同步</li> <li>客户端配置 DNS 高可用</li></ul></div></div> <!----> <div class="page-edit"><!----> <div class="tags"><a href="/tags/?tag=dns" title="标签">#dns</a></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">3/29/2021, 4:48:26 PM</span></div></div> <div class="page-nav-wapper"><!----> <!----></div></div> <!----></main></div> <div class="footer"><div class="icons"><a href="mailto:riku7032@163.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/mowanqing" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://www.zhihu.com/people/lu-xiao-you-44-77" title="zhihu" target="_blank" class="iconfont icon-zhihu"></a></div> 
+  Powered by 
+  <a href="https://vuepress.vuejs.org/zh/" target="_blank" title="Vuepress">Vuepress</a> 
+    | Copyright © 2020-2021
+    <span>Riku | <a href="https://github.com/vuejs/vuepress/blob/master/LICENSE" target="_blank">MIT License</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">跟随系统</li><li class="iconfont icon-rijianmoshi">浅色模式</li><li class="iconfont icon-yejianmoshi">深色模式</li><li class="iconfont icon-yuedu">阅读模式</li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.8a3ae5f1.js" defer></script><script src="/assets/js/2.fbbb7b81.js" defer></script><script src="/assets/js/14.0718d54e.js" defer></script>
+  </body>
+</html>
